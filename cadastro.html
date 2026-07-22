@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest-cadastro.json">
+    <meta name="theme-color" content="#181818">
+    <title>Solicitação de Empréstimo - DM Financeira</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <span class="top-bar-titulo">DM Financeira</span>
+    </div>
+
+    <main>
+        <div class="card">
+            <h2>Ficha de Solicitação</h2>
+            <p class="subtitulo">Preencha todos os dados abaixo para análise de crédito.</p>
+
+            <form id="formCadastro">
+                <!-- FOTO DE PERFIL -->
+                <div class="secao-form">
+                    <h3>👤 Seus Dados Pessoais</h3>
+                    <label for="fotoCliente">Sua Foto de Perfil (Selfie):</label>
+                    <input type="file" id="fotoCliente" accept="image/*" required>
+
+                    <input id="nome" type="text" placeholder="Nome completo" required>
+                    <input id="cpf" type="text" inputmode="numeric" placeholder="CPF" required>
+                    <input id="telefone" type="tel" inputmode="tel" placeholder="Telefone / WhatsApp (com DDD)" required>
+                    <input id="chavePix" type="text" placeholder="Chave PIX para recebimento" required>
+                </div>
+
+                <!-- ENDEREÇO E VEÍCULO -->
+                <div class="secao-form">
+                    <h3>🚗 Residência & Veículo</h3>
+                    <input id="endereco" type="text" placeholder="Endereço Completo" required>
+                    <input id="linkLocalizacao" type="url" placeholder="Link da Localização Fixo (Google Maps)">
+                    <input id="placaVeiculo" type="text" placeholder="Placa do Veículo (se houver)">
+                </div>
+
+                <!-- EMPRÉSTIMO -->
+                <div class="secao-form">
+                    <h3>💰 Valor Pretendido</h3>
+                    <label for="valor">Selecione o Valor:</label>
+                    <select id="valor" required>
+                        <option value="300">R$ 300,00 (R$ 17,00/dia)</option>
+                        <option value="400">R$ 400,00 (R$ 22,00/dia)</option>
+                        <option value="500">R$ 500,00 (R$ 28,00/dia)</option>
+                        <option value="600">R$ 600,00 (R$ 33,00/dia)</option>
+                        <option value="700">R$ 700,00 (R$ 39,00/dia)</option>
+                        <option value="800">R$ 800,00 (R$ 44,00/dia)</option>
+                        <option value="900">R$ 900,00 (R$ 50,00/dia)</option>
+                        <option value="1000">R$ 1.000,00 (R$ 56,00/dia)</option>
+                    </select>
+                </div>
+
+                <!-- CONTATOS DE REFERÊNCIA -->
+                <div class="secao-form">
+                    <h3>📞 3 Contatos de Referência</h3>
+                    <input id="ref1" type="text" placeholder="1º Parente/Contato (Nome e Tel)" required>
+                    <input id="ref2" type="text" placeholder="2º Parente/Contato (Nome e Tel)" required>
+                    <input id="ref3" type="text" placeholder="3º Parente/Contato (Nome e Tel)" required>
+                </div>
+
+                <!-- DOCUMENTAÇÃO -->
+                <div class="secao-form">
+                    <h3>📁 Documentos</h3>
+                    
+                    <label for="docFrenteVerso">Foto do Documento (RG ou CNH):</label>
+                    <input type="file" id="docFrenteVerso" accept="image/*" required>
+
+                    <label for="fotoResidencia">Foto do Comprovante de Residência:</label>
+                    <input type="file" id="fotoResidencia" accept="image/*" required>
+
+                    <label for="printGanhos">Print do Extrato / Ganhos do App:</label>
+                    <input type="file" id="printGanhos" accept="image/*" required>
+                </div>
+
+                <button type="submit" id="btnEnviar">Enviar Ficha para Análise</button>
+            </form>
+
+            <div id="mensagemSucesso" class="mensagem-sucesso escondido">
+                ✅ <strong>Solicitação enviada com sucesso!</strong>
+                <p>Analisaremos seus documentos e entraremos em contato via WhatsApp em breve.</p>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="cadastro.js"></script>
+</body>
+</html>

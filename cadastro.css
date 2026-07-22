@@ -1,0 +1,136 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+/* BARRA SUPERIOR FIXA */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #181818;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.top-bar-titulo {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+main {
+    padding: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+h2 {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.secao-form {
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.secao-form h3 {
+    color: #d4af37;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+input, select {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 10px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    background-color: #181818;
+    padding: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #d4af37;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #555;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.mensagem-sucesso {
+    background-color: #1b4332;
+    border: 1px solid #2d6a4f;
+    color: #d8f3dc;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.mensagem-sucesso p {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.escondido {
+    display: none !important;
+}
+
