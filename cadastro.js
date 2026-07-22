@@ -45,6 +45,7 @@ function converterImagemParaBase64(file) {
 
                 resolve(canvas.toDataURL("image/jpeg", 0.6));
             };
+            img.onerror = (err) => reject(err);
         };
         reader.onerror = (error) => reject(error);
     });
@@ -77,7 +78,7 @@ document.getElementById("formCadastro").addEventListener("submit", async (e) => 
         let fotoResidenciaFile = document.getElementById("fotoResidencia").files[0];
         let printGanhosFile = document.getElementById("printGanhos").files[0];
 
-        // Converte as fotos
+        // Converte as fotos para Base64 otimizado
         let fotoBase64 = await converterImagemParaBase64(fotoPerfilFile);
         let docBase64 = await converterImagemParaBase64(docFrenteVersoFile);
         let resBase64 = await converterImagemParaBase64(fotoResidenciaFile);
@@ -98,6 +99,7 @@ document.getElementById("formCadastro").addEventListener("submit", async (e) => 
 
         // Salva na coleção "solicitacoes_pendentes"
         await addDoc(collection(db, "solicitacoes_pendentes"), {
+            status: "pendente", // Adicionado para o filtro do app Android
             nome,
             cpf,
             telefone,
@@ -116,7 +118,7 @@ document.getElementById("formCadastro").addEventListener("submit", async (e) => 
             printFoto: printBase64
         });
 
-        // Oculta o formulário e exibe mensagem
+        // Oculta o formulário e exibe a mensagem de sucesso
         document.getElementById("formCadastro").classList.add("escondido");
         document.getElementById("mensagemSucesso").classList.remove("escondido");
 
@@ -130,5 +132,5 @@ document.getElementById("formCadastro").addEventListener("submit", async (e) => 
 
 // SERVICE WORKER
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw-cadastro.js').catch(err => console.error(err));
+    navigator.serviceWorker.register('./sw.js').catch(err => console.error("Erro SW:", err));
 }
